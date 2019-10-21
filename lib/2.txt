@@ -1,0 +1,93 @@
+Olympic village
+Problem Description
+
+For upcoming Olympic games, the organizers have to plan accommodation for players of different games. Olympic village is built with a certain number of rooms. Now the organizers are faced with the task of allocation rooms to athletes, subject to certain constraints. The constraints are
+
+· Players of same teams should stay in same room.
+
+· Single player can stay anywhere.
+
+· All the rooms in the Olympic village should be fully occupied.
+
+Write a program to validate that accommodations can be done without violating constraints. Print “Yes” if and only if all the Accommodations honour all constraints, else print “No”.
+
+Constraints
+
+0 < N <= 10000
+
+Note: You have to allocate already formed teams to same team in virtual room.
+
+Input Format
+
+First line contains two space-separated integers, N and R, which denote total number of players coming and number of rooms
+
+Second line contains numbers of teams already formed and individual participants to be allocated to room M.
+
+Next line contains M number of team sizes or 1 in case of individual participants separated by whitespace.
+
+Output
+
+Yes / No
+
+“Yes” if and only if all the accommodations honour all constraints, else print “No”.
+
+Test Case
+
+
+Explanation
+
+Example 1
+
+Input
+
+12 4
+
+8
+
+1 3 2 2 1 1 1 1
+
+Output
+
+Yes
+
+Explanation
+
+So here total number of players coming N is 12 and rooms R is 4. So there will be total of 12/4= 3 players in given room.
+
+Team Allocation details are as follows:
+
+Team 1: 1 3
+
+Team 2: 2 2
+
+Team 3: 1 1 1 1
+
+Since all players are allocated in rooms without violating constraints, so output is Yes
+
+Example 2
+
+Input
+
+12 4
+
+4
+
+3 3 3 3
+
+Output:
+
+No
+
+Explanation:
+
+So here total number of players coming N is 12 and rooms R is 4. So there will be total of 12/4= 3 players in given room.
+
+Team Allocation details are as follows:
+
+Team 1: 3
+
+Team 2: 3
+
+Team 3: 3
+
+Since we cannot allocate last three players of same team in same room. So output is No

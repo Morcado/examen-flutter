@@ -33,22 +33,22 @@ class LoginScreenState extends State<LoginScreen> {
           children: <Widget>[
             SizedBox(height: 60.0,),
             CircleAvatar(
-              backgroundImage: NetworkImage("https://picsum.photos/500"),
+              backgroundImage: AssetImage("assets/images/mercado.jpg"),
               minRadius: 90, maxRadius: 150,
             ),
             SizedBox(height: 20.0,),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 40.0),
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: TextFormField(
-                decoration: InputDecoration(hintText: 'User'),
+                decoration: InputDecoration(hintText: 'Usuario'),
                 // Validacion de la contraseña funcion anonima
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter user';
+                    return 'Introduce usuario';
                   }
                   else {
                     if (value != 'admin') {
-                      return 'Incorrect user';
+                      return 'Usuario incorrecto';
                     }
                   }
                   return null;
@@ -57,46 +57,49 @@ class LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 20.0,),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 40.0),
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: TextFormField(
                 decoration: InputDecoration(
-                  hintText: 'Password',
+                  hintText: 'Contraseña',
                   //suffixIcon: Icon(Icons.remove_red_eye),
                 ),
                 obscureText: true,
                 // Validacion de la contraseña funcion anonima
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter user';
+                    return 'Inserta contraseña';
                   }
                   else {
                     if (value != 'admin') {
-                      return 'Incorrect user';
+                      return 'Contraseña incorrecta';
                     }
                   }
                   return null;
                 },
               ),
             ),
-                        
             SizedBox(height: 20.0,),
-            RaisedButton(
-              onPressed: () {
-                if (_formKey.currentState.validate()) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Principal()),
-                  );
-                }
-              },
-              child: Text('Login'),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Registro()),);
-              },
-              child: Text('Registro'),
-            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+              RaisedButton(
+                onPressed: () {
+                  if (_formKey.currentState.validate()) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Principal()),
+                    );
+                  }
+                },
+                child: Text('Login'),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Registro()),);
+                },
+                child: Text('Registro'),
+              ),
+            ],)
           ],
         ),
       )
