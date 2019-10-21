@@ -99,7 +99,8 @@ class LoginScreenState extends State<LoginScreen> {
                 },
                 child: Text('Registro'),
               ),
-            ],)
+            ],),
+            SizedBox(height: 20.0,),
           ],
         ),
       )

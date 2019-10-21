@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:hola/perfil.dart';
 import 'package:hola/principal.dart';
 
+import 'carrito.dart';
+
 class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -31,8 +33,10 @@ class Menu extends StatelessWidget {
           }
         ),
         ListTile(
-          title: Text("Productos"),
-          //onTap: ,
+          title: Text("Carrito de compras"),
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Carrito()));
+          }
         ),
         ListTile(
           title: Text("Promociones"),
