@@ -1,29 +1,63 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hola/menu.dart';
+import 'data.dart';
+import 'final.dart';
 
-class Carrito extends StatelessWidget {
+class Carrito extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    return new ListViewCarrito();
+  }
+}
 
+class ListViewCarrito extends State<Carrito> {
+  List<Container> _objetosdDelCarro() {
+    int index = 0;
+    return productos.map((produc) {
+      var container = Container(
+        decoration: index % 2 == 0? BoxDecoration(color: Colors.black12) : BoxDecoration(color: Colors.white70),
+        child: Row(children: <Widget>[
+          Container(
+            decoration: BoxDecoration(color: Colors.white),
+            height: 100.0,
+            width: 100.0,
+            padding: EdgeInsets.only(right: 10.0),
+            child: Image.asset("assets/images/" + produc.foto),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.only(bottom: 10.0),
+                child: Text(produc.nombre, style: TextStyle(fontSize: 20.0),),
+              ),
+              Container(
+                child: Text("Cantidad: 3"),
+              )
+            ],
+          )
+        ],)
+      );
+      index = index + 1;
+      return container;
+    }).toList();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Carrito de compras"),),
+      appBar: AppBar(title: Text("Carrito"),),
       drawer: Menu(),
-      body: SingleChildScrollView(child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
-        child: ListView(
-          children: <Widget>[
-/*             Row(
-              children: <Widget>[
-                Image.asset("assets/images/cama.jpg"),
-                Text("Cama"),
-                Text("Cantidad: 2"),
-              ],
-            ) */
-          ],
-        )
-      ),),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Final()));
+        },
+        label: Text("Comprar"),
+        icon: Icon(Icons.navigation),
+        backgroundColor: Colors.orange,
+      ),
+      body: ListView(children: _objetosdDelCarro(),)
     );
   }
-
 }

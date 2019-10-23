@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hola/data.dart';
+import 'package:hola/listaVendedores.dart';
 import 'package:hola/perfil.dart';
 import 'package:hola/principal.dart';
+import 'package:hola/promociones.dart';
 
 import 'carrito.dart';
+
 
 class Menu extends StatelessWidget {
   @override
@@ -13,17 +17,19 @@ class Menu extends StatelessWidget {
         DrawerHeader(
           child: Text(
             "Mercado de cositas",
-            style: TextStyle(fontSize: 20.0, color: Colors.white),
+            style: TextStyle(fontSize: 20.0, color: Colors.black),
           ),
           
           decoration: BoxDecoration(
-            color: Colors.green
+            //image: DecorationImage(colorFilter: ColorFilter.mode(Colors.brown, BlendMode.color), image: AssetImage("assets/images/mercado.jpg")),
+            
           ),
         ),
         ListTile(
           title: Text("Perfil"),
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Perfil()));
+            //Navigator.push(context, MaterialPageRoute(builder: (context) => Perfil()));
+            Navigator.pushNamed(context, Perfil.ruta, arguments: vendedores[0]);
           } 
         ),
         ListTile(
@@ -40,7 +46,15 @@ class Menu extends StatelessWidget {
         ),
         ListTile(
           title: Text("Promociones"),
-          //onTap: ,
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Promociones()));
+          }
+        ),
+        ListTile(
+          title: Text("Vendedores"),
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ListaVendedores()));
+          }
         ),
       ],),
     );

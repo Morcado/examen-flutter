@@ -47,6 +47,16 @@ flutter:
   - assets/images/mercado.jpg
   - assets/images/tarjeta.png
   - assets/images/peluhe.jpg
+  - assets/images/harry.jpg
+  - assets/images/hermione.jpg
+  - assets/images/ron.jpg
+  - assets/images/bateria.jpg
+  - assets/images/switch.jpg
+  - assets/images/huawei.jpg
+  - assets/images/memoria.jpg
+  - assets/images/jack.jpg
+  - assets/images/pistola.jpg
+  - assets/images/camara.jpg
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

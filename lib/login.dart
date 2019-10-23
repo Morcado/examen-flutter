@@ -40,7 +40,7 @@ class LoginScreenState extends State<LoginScreen> {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: TextFormField(
-                decoration: InputDecoration(hintText: 'Usuario'),
+                decoration: InputDecoration(hintText: 'Nombre de usuario', labelText: "Usuario"),
                 // Validacion de la contraseña funcion anonima
                 validator: (value) {
                   if (value.isEmpty) {
@@ -60,6 +60,7 @@ class LoginScreenState extends State<LoginScreen> {
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: TextFormField(
                 decoration: InputDecoration(
+                  labelText: "Contraseña",
                   hintText: 'Contraseña',
                   //suffixIcon: Icon(Icons.remove_red_eye),
                 ),
@@ -83,6 +84,7 @@ class LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
               RaisedButton(
+                color: Colors.orange,
                 onPressed: () {
                   if (_formKey.currentState.validate()) {
                     Navigator.push(
