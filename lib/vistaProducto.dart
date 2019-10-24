@@ -41,7 +41,7 @@ class VistaProducto extends StatelessWidget {
                   Text("Vendido por " + vendedores[argsProd.vendedor].nombre),
                   RaisedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, Perfil.ruta, arguments: vendedores[vendedores[argsProd.vendedor].id]);
+                      Navigator.pushNamed(context, Perfil.ruta, arguments: vendedores[argsProd.vendedor]);
                     },
                     child: Text('Ver perfil'),
                   ),

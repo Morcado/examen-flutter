@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hola/producto.dart';
 import 'package:hola/vistaProducto.dart';
 import 'menu.dart';
 import 'data.dart';
@@ -19,6 +20,20 @@ class ArgsPreguntas {
 }
 
 class Principal extends StatelessWidget {
+  static List<Container> perros (BuildContext context, List<Producto> p) {
+    List<Container> perros = new List<Container>();
+    for (var i = 0; i < p.length; i++) {
+      var con = Container(child: GestureDetector(
+        child: Container(
+          height: 200.0, width: 200.0,
+          child: Image.asset("assets/images/" + p[i].foto),
+        ),
+        onTap: () {Navigator.pushNamed(context, VistaProducto.ruta, arguments: p[i]);}
+      ),);
+      perros.add(con);
+    }
+    return perros;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,93 +46,28 @@ class Principal extends StatelessWidget {
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(top: 20.0, left: 20.0),
-              child: Text("Accesssorios para perros", style: TextStyle(fontSize: 20.0),)
+              child: Text("Accesssorios para perros", style: TextStyle(fontSize: 20.0, color: Colors.orange),)
             ),
             Container(
               height: 250.0,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  Container(child: GestureDetector(
-                    child: Container(
-                      height: 200.0, width: 200.0,
-                      child: Image.asset("assets/images/" + productos[0].foto),
-                    ),
-                    onTap: () { 
-                      Navigator.pushNamed(context, VistaProducto.ruta, arguments: productos[0]);
-                    }
-                  ),),
-                  Container(child: GestureDetector(
-                    child: Container(
-                      height: 200.0, width: 200.0,
-                      child: Image.asset("assets/images/" + productos[1].foto),
-                    ),
-                    onTap: () { 
-                      Navigator.pushNamed(context, VistaProducto.ruta, arguments: productos[1]);
-                    }
-                  ),),
-                   Container(child: GestureDetector(
-                    child: Container(
-                      height: 200.0, width: 200.0,
-                      child: Image.asset("assets/images/" + productos[2].foto),
-                    ),
-                    onTap: () { 
-                      Navigator.pushNamed(context, VistaProducto.ruta, arguments: productos[2]);
-                    }
-                  ),),  
-                ],
-              ),
+              child: ListView(scrollDirection: Axis.horizontal, children: perros(context, productos[1]),),
             ),
             Container(
               padding: EdgeInsets.only(top: 20.0, left: 20.0),
-              child: Text("Electronicos", style: TextStyle(fontSize: 20.0),)
+              child: Text("Electronicos", style: TextStyle(fontSize: 20.0, color: Colors.orange),)
             ),
-           
             Container(
               height: 250.0,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  Container(child: GestureDetector(
-                    child: Container(
-                      height: 200.0, width: 200.0,
-                      child: Image.asset("assets/images/" + electronicos[0].foto),
-                    ),
-                    onTap: () { 
-                      Navigator.pushNamed(context, VistaProducto.ruta, arguments: electronicos[0]);
-                    }
-                  ),),
-                  Container(child: GestureDetector(
-                    child: Container(
-                      height: 200.0, width: 200.0,
-                      child: Image.asset("assets/images/" + electronicos[1].foto),
-                    ),
-                    onTap: () { 
-                      Navigator.pushNamed(context, VistaProducto.ruta, arguments: electronicos[1]);
-                    }
-                  ),),
-                   Container(child: GestureDetector(
-                    child: Container(
-                      height: 200.0, width: 200.0,
-                      child: Image.asset("assets/images/" + electronicos[2].foto),
-                    ),
-                    onTap: () { 
-                      Navigator.pushNamed(context, VistaProducto.ruta, arguments: electronicos[2]);
-                    }
-                  ),),  
-                   Container(child: GestureDetector(
-                    child: Container(
-                      height: 200.0, width: 200.0,
-                      child: Image.asset("assets/images/" + electronicos[3].foto),
-                    ),
-                    onTap: () { 
-                      Navigator.pushNamed(context, VistaProducto.ruta, arguments: electronicos[3]);
-                    }
-                  ),),  
-                ],
-              ),
+              child: ListView(scrollDirection: Axis.horizontal, children: perros(context, productos[0])),
             ),
-
+            Container(
+              padding: EdgeInsets.only(top: 20.0, left: 20.0),
+              child: Text("Heramientas de casa", style: TextStyle(fontSize: 20.0, color: Colors.orange),)
+            ),
+            Container(
+              height: 250.0,
+              child: ListView(scrollDirection: Axis.horizontal, children: perros(context, productos[2])),
+            ),
           ],
         )
       )

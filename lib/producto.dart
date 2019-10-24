@@ -1,4 +1,5 @@
 class Producto {
+  final int id;
   final String foto;
   final String nombre;
   final String descripcion;
@@ -11,5 +12,5 @@ class Producto {
   final String respuesta2;
   final int vendedor;
 
-  Producto(this.foto, this.nombre, this.descripcion, this.descuento, this.opinion1, this.opinion2, this.pregunta1, this.respuesta1, this.pregunta2, this.respuesta2, this.vendedor);
+  Producto(this.id, this.foto, this.nombre, this.descripcion, this.descuento, this.opinion1, this.opinion2, this.pregunta1, this.respuesta1, this.pregunta2, this.respuesta2, this.vendedor);
 }

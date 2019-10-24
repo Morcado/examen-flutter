@@ -5,5 +5,6 @@ class Vendedor {
   final String correo;
   final String telefono;
   final int id;
-  Vendedor(this.foto, this.nombre, this.correo, this.telefono, this.id);
+  final int cat;
+  Vendedor(this.foto, this.nombre, this.correo, this.telefono, this.id, this.cat);
 }

@@ -17,15 +17,16 @@ class Menu extends StatelessWidget {
         DrawerHeader(
           child: Text(
             "Mercado de cositas",
-            style: TextStyle(fontSize: 20.0, color: Colors.black),
+            style: TextStyle(fontSize: 20.0, color: Colors.white),
           ),
           
           decoration: BoxDecoration(
             //image: DecorationImage(colorFilter: ColorFilter.mode(Colors.brown, BlendMode.color), image: AssetImage("assets/images/mercado.jpg")),
-            
+            color: Colors.brown,
           ),
         ),
         ListTile(
+          leading: Icon(Icons.person),
           title: Text("Perfil"),
           onTap: () {
             //Navigator.push(context, MaterialPageRoute(builder: (context) => Perfil()));
@@ -33,24 +34,28 @@ class Menu extends StatelessWidget {
           } 
         ),
         ListTile(
+          leading: Icon(Icons.category),
           title: Text("Categorías"),
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => Principal()));
           }
         ),
         ListTile(
+          leading: Icon(Icons.shopping_cart),
           title: Text("Carrito de compras"),
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => Carrito()));
           }
         ),
         ListTile(
+          leading: Icon(Icons.local_offer),
           title: Text("Promociones"),
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => Promociones()));
           }
         ),
         ListTile(
+          leading: Icon(Icons.people),
           title: Text("Vendedores"),
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => ListaVendedores()));

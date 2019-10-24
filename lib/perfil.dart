@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hola/menu.dart';
+import 'package:hola/principal.dart';
 import 'package:hola/vendedor.dart';
-import 'package:hola/vistaProducto.dart';
 
 import 'data.dart';
 
@@ -49,29 +49,7 @@ class Perfil extends StatelessWidget {
           height: 225.0,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: <Widget>[
-              Container(child: GestureDetector(
-                child: Container(
-                  height: 200.0, width: 200.0,
-                  child: Image.asset("assets/images/" + productos[0].foto),
-                ),
-                onTap: () {Navigator.pushNamed(context, VistaProducto.ruta, arguments: productos[0]);}
-              ),),
-              Container(child: GestureDetector(
-                child: Container(
-                  height: 200.0, width: 200.0,
-                  child: Image.asset("assets/images/casita.jpg"),
-                ),
-                onTap: () {Navigator.pushNamed(context, VistaProducto.ruta, arguments: productos[1]);}
-              ),),
-                Container(child: GestureDetector(
-                child: Container(
-                  height: 200.0, width: 200.0,
-                  child: Image.asset("assets/images/peluhe.jpg"),
-                ),
-                onTap: () {Navigator.pushNamed(context, VistaProducto.ruta, arguments: productos[2]);}
-              ),),  
-            ],
+            children: Principal.perros(context, productos[perf.cat]),
           ),
         ),
        

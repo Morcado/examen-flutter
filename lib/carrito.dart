@@ -14,7 +14,7 @@ class Carrito extends StatefulWidget{
 class ListViewCarrito extends State<Carrito> {
   List<Container> _objetosdDelCarro() {
     int index = 0;
-    return productos.map((produc) {
+    return productos[0].map((produc) {
       var container = Container(
         decoration: index % 2 == 0? BoxDecoration(color: Colors.black12) : BoxDecoration(color: Colors.white70),
         child: Row(children: <Widget>[
@@ -30,10 +30,12 @@ class ListViewCarrito extends State<Carrito> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.only(bottom: 10.0),
+                width: MediaQuery.of(context).size.width - 100,
+                padding: EdgeInsets.only(bottom: 10.0, left: 20.0),
                 child: Text(produc.nombre, style: TextStyle(fontSize: 20.0),),
               ),
               Container(
+                padding: EdgeInsets.only(left: 20.0),
                 child: Text("Cantidad: 3"),
               )
             ],
@@ -54,7 +56,7 @@ class ListViewCarrito extends State<Carrito> {
           Navigator.push(context, MaterialPageRoute(builder: (context) => Final()));
         },
         label: Text("Comprar"),
-        icon: Icon(Icons.navigation),
+        icon: Icon(Icons.shopping_cart),
         backgroundColor: Colors.orange,
       ),
       body: ListView(children: _objetosdDelCarro(),)
